@@ -1,0 +1,22 @@
+.OficinaPage{
+    height: 100vh;
+    background-image: linear-gradient( #2F7FEF, rgb(0, 0, 0)); 
+    display: block;
+}
+.mapa{
+    width: 100%;
+    height: 100vh;
+    
+}
+#mapa{
+    width: 100%;
+    height: 100%;
+    cursor: revert;
+}
+.configuracion{
+    width: 100%;
+    height: 400px;
+    
+}
+
+
