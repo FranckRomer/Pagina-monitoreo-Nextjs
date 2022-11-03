@@ -1,5 +1,24 @@
+.Headers {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    display: flex;
+    justify-content: left;
+}
 
-.Pruebas{
+.Headers a {
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.Headers a:hover {
+    background-color: #FC00FF;
+    color: wheat;
+}
+
+
+.Pruebas {
     width: 100%;
     height: 100%;
     background-color: #0093E9;
@@ -8,18 +27,19 @@
     color: aliceblue;
     /* border: 1px solid red; */
 }
-.AddDisp{
+
+.AddDisp {
     width: 20%;
     /* height: 100px; */
     /* height: 100vh; */
     text-align: center;
-    display:inline-block;
-    margin-top: 200px;
+    display: inline-block;
+    margin-top: 50px;
     color: black;
     /* border: 1px solid   red; */
 }
 
-.AddDisp form{
+.AddDisp form {
     width: 200px;
     display: inline-block;
     /* border: 1px solid red; */
@@ -27,7 +47,7 @@
 
 
 
-.inputcontainer input{
+.inputcontainer input {
     width: 200px;
     color: black;
     text-align: center;
@@ -37,21 +57,21 @@
     border-bottom: 1px solid blue;
 }
 
-.inputcontainer input:focus{
+.inputcontainer input:focus {
     /* background-color: aliceblue; */
     background-color: transparent;
     border: none;
     color: black;
-    
+
 }
 
-.botones{
+.botones {
     width: 80%;
     /* height: 100vh; */
-    text-align: center;  
+    text-align: center;
 }
 
-.FocosContain{
+.FocosContain {
     max-width: 720;
     height: auto;
     /* display: inline;  */
@@ -61,7 +81,7 @@
     /* border: 1px solid red; */
 }
 
-.Focos{
+.Focos {
     min-width: 220px;
     height: 220px;
     border: 1px solid black;
@@ -73,7 +93,7 @@
 
 
 
-.Focos button{
+.Focos button {
     width: 50px;
     height: 30px;
     border: none;
@@ -84,40 +104,53 @@
     border-radius: 5px;
 }
 
-.Focos .Encender{
+.Focos .Encender {
     background-color: aliceblue;
     color: black;
 }
 
-.Focos .Apagar{
+.Focos .Apagar {
     background-color: black;
 }
-.Focos .Rgbs{
+
+.Focos .Rgbs {
     background-color: #00DBDE;
     background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 }
 
-.Focos img{
+.Focos img {
     width: 100px;
 }
 
-.btnFoco button{
+.btnFoco button {
     width: 100px;
     height: 100px;
     background-color: transparent;
     border: transparent;
 }
 
+
+
 @media (max-width: 800px) {
-    .Pruebas{
+    .Pruebas {
         display: inline-block;
+        padding-inline-start: 0;
     }
-    .AddDisp{
+
+    .AddDisp {
         width: 100%;
     }
-    .botones{
-        width: 100%;
-        
+
+    .botones {
+        width: 95%;
+
     }
-    
-  }
+    .Focos{
+        margin-left: 0;
+        padding: 0;
+        padding-inline-start: 0;
+    }
+
+}
+
+

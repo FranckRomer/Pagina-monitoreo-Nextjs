@@ -7,25 +7,35 @@ const Joya = () => {
     <div className={styles.container}>
       <Head>
         <title>Joya</title>
-        <meta name="description" content="Envio de dato Can por medio de http" />
+        <meta name="description" content="ZonasJoya" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.mainJoya}>
+        <div className={styles.Headers}>
+          <a className={styles.LinkHome} href="./">Home</a>
+        </div>
+
         <h1 className={styles.title}>
-          Welcome to <a href="">Joya</a>
+          <a href="">Zonas Joya</a>
         </h1>
+        
 
         <section className={styles.zonas}>
-          
-          <a className={styles.oficina} href="./Joya/paisajismo"><p>paisajismo</p></a>
-          <a className={styles.oficina} href="./Joya/residencial"><p>residencial</p></a>
-          <a className={styles.oficina} href="./Joya/dentroresidencial"><p>dentroresidencial</p></a>
-          
+
+          <a className={styles.oficina} href="./Joya/Cochera"><p>Cochera</p></a>
+          <a className={styles.oficina} href="./Joya/Recamaras"><p>Recamaras</p></a>
+          <a className={styles.oficina} href="./Joya/Cocina"><p>Cocina</p></a>
+          <a className={styles.oficina} href="./Joya/Estancias"><p>Estancia</p></a>
+          <a className={styles.oficina} href="./Joya/Bar"><p>Bar</p></a>
+          <a className={styles.oficina} href="./Joya/Oficina"><p>Oficina</p></a>
+          <a className={styles.oficina} href="./Joya/Pasillos"><p>Pasillos</p></a>
+          <a className={styles.oficina} href="./Joya/Villas"><p>Villas</p></a>
+
         </section>
       </main>
 
-      
+
     </div>
   )
 }
