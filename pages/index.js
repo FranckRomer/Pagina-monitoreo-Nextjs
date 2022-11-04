@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -17,25 +18,16 @@ export default function Home() {
 
         <section className={styles.zonas}>
           
-          <a className={styles.oficina} href="./oficina"><p>Oficina</p></a>
-          <a className={styles.oficina} href="./pruebas"><p>Pruebas</p></a>
-          <a className={styles.oficina} href="./Joya"><p>Joya</p></a>
+          <Link href={"./Joya"} className={styles.Link}>Joya</Link>
+          <Link href={"./pruebas"} className={styles.Link}>Pruebas</Link>
+          {/* <a className={styles.oficina} href="./Joya"><p>Joya</p></a>
+          <a className={styles.oficina} href="./pruebas"><p>Pruebas</p></a> */}
+          
           
         </section>
       </main>
 
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
+      
     </div>
   )
 }

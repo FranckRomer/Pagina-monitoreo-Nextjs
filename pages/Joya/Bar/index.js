@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../../styles/ZonasJoya.module.css'
 import { BotonJoya } from '../../../component/Joya/BotonJoya'
 import Data from "../../../joyaData.json"
+import Link from 'next/link'
 const DataCochera = Data.Cochera
 // const DataCochera = Data.Cochera
 const Bar = () => {
@@ -29,7 +30,8 @@ const Bar = () => {
   return (
     <div className={styles.Zona}>
       <header className={styles.Headers}>
-        <a className={styles.LinkHome} href="./">Zonas</a>
+        {/* <a className={styles.LinkHome} href="./">Zonas</a> */}
+        <Link href={"/Joya"} className={styles.LinkHome}>Zonas</Link>
       </header>
       <main>
         <section className={styles.Imagen} >

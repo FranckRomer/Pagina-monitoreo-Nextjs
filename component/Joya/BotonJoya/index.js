@@ -3,20 +3,28 @@ import React from 'react'
 import Modal from '../../Modal';
 import stylesModal from "../../../styles/Modal.module.css"
 import axios from "axios";
+import { render } from 'react-dom';
+// import { ModalComponent } from '../Modal';
 
 function BotonJoya(props) {
     const [showModal, setShowModal] = React.useState(false)
-    const [dispositivo, setDispositivo] = React.useState([])
+    const [dispositivo, setDispositivo] = React.useState({
+        can: props.Data.can,
+        pin: props.Data.pin,
+        percentage: "000",
+        rgb: "xxx"
+    })
 
     React.useEffect(() => {
         obtenerDatos()
+
     })
 
 
     const obtenerDatos = async () => {
         try {
             const data = await axios.put('/api/dana/infoDisp/findDisp', props.Data)
-            
+
             if (data.data[0] == undefined) {
                 setDispositivo({
                     can: props.Data.can,
@@ -24,22 +32,25 @@ function BotonJoya(props) {
                     percentage: "000",
                     rgb: "xxx"
                 })
-            } else{
-                setDispositivo(data.data[0])
+            } else {
+                // setDispositivo(data.data[0])
+                setDispositivo({
+                    can: data.data[0].can,
+                    pin: data.data[0].pin,
+                    percentage: data.data[0].percentage,
+                    rgb: data.data[0].rgb
+                })
             }
             // console.log(data.data[0]);
 
         } catch (error) {
             console.log("NO FUNCIONO");
-            setDispositivo({
-                can: props.Data.can,
-                pin: props.Data.pin,
-                percentage: "000",
-                rgb: "xxx"
-            })
+            
         }
 
     }
+
+
     /*
      *  ENVIO DE DATOS
     */
@@ -106,19 +117,24 @@ function BotonJoya(props) {
     return (
         <>
             <div className={styles.Cubo} style={stylePosicion}>
-                {
-                    (dispositivo.percentage != "000") ? <button type="" onClick={() => setShowModal(true)}><img src='/images/encendido.png' /></button> : <button type="" onClick={() => setShowModal(true)}><img src='/images/apagado.png' /></button>
-                }
+                <button type="" onClick={() => setShowModal(true)}>
+                    {
+                        (dispositivo.percentage == "000") ? <img src={'/images/disp/' + props.Tipo + '_off.png'} /> : <img src={'/images/disp/' + props.Tipo + '_on.png'} />
+                    }
+                </button>
+                {/* {
+                    (dispositivo.percentage != "000") ? <button type="" onClick={() => setShowModal(true)}><img src={'/images/disp/'+ props.Tipo +'_on.png'} /></button> : <button type="" onClick={() => setShowModal(true)}><img src={'/images/disp/'+ props.Tipo +'_off.png'} /></button>
+                } */}
 
             </div>
 
             {/* MODAL */}
             <Modal show={showModal} onClose={() => setShowModal(false)}>
                 <section className={stylesModal.ImagenContend}>
+
                     {
-                        (dispositivo.percentage != "000") ? <button type="" onClick={() => ApagarLampara(props.Data)}><img src='/images/encendido.png' /></button> : <button type="" onClick={() => EncenderLampara(props.Data)}><img src='/images/apagado.png' /></button>
+                        (dispositivo.percentage == "000") ? <button type="" onClick={() => EncenderLampara(props.Data)}><img src={'/images/disp/' + props.Tipo + '_off.png'} /></button> : <button type="" onClick={() => ApagarLampara(props.Data)}><img src={'/images/disp/' + props.Tipo + '_on.png'} /></button>
                     }
-                    {/* <img src="/images/encendido.png" alt="" /> */}
                 </section>
                 <section className={stylesModal.Data}>
                     Can: {props.Data.can}, Pin: {props.Data.pin}
@@ -126,7 +142,6 @@ function BotonJoya(props) {
                 <section className={stylesModal.BotonesContend}>
                     <button type="" onClick={() => EncenderLampara(props.Data)} >ON</button>
                     <button type="" onClick={() => ApagarLampara(props.Data)}   >OFF</button>
-                    {/* <button type="">RGB</button> */}
                 </section>
                 {props.Tipo == "rgb" ? "hola" : ""}
             </Modal>
